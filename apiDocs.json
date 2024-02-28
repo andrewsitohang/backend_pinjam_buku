@@ -1,0 +1,396 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"API Express Documentation",
+        "version":"1.0.0"
+    },
+    "tags":[
+        {
+            "name":"Members",
+            "description":"Documentation for members"
+        },
+        {
+            "name":"Books",
+            "description":"Documentation for books"
+        },
+        {
+            "name":"Borrow",
+            "description":"Documentation for borrowing books"
+        },
+        {
+            "name":"Return",
+            "description":"Documentation for returning books"
+        }
+    ],
+    "paths":{
+        "/member":{
+            "get":{
+                "tags":[
+                    "Members"
+                ],
+                "summary":"GET MEMBER DATA",
+                "description":"Get existing member with number of books being borrowed",
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/member/create":{
+            "post":{
+                "tags":[
+                    "Members"
+                ],
+                "summary":"CREATE MEMBER DATA",
+                "description":"Create member data",                
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/member/update/{code}":{
+            "put":{
+                "tags":[
+                    "Members"
+                ],
+                "summary":"UPDATE MEMBER DATA",
+                "description":"Update member data",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"code",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Member Code"
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/member/delete":{
+            "delete":{
+                "tags":[
+                    "Members"
+                ],
+                "summary":"DELETE MEMBER DATA",
+                "description":"Delete member data",                
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "code":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/book":{
+            "get":{
+                "tags":[
+                    "Books"
+                ],
+                "summary":"SHOW AVAILABLE BOOK DATA",
+                "description":"Get existing data",
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/book/create":{
+            "post":{
+                "tags":[
+                    "Books"
+                ],
+                "summary":"CREATE BOOK DATA",
+                "description":"Create book data",                
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "code":{
+                                        "type":"string"
+                                    },
+                                    "title":{
+                                        "type":"string"
+                                    },
+                                    "author":{
+                                        "type":"string"
+                                    },
+                                    "stock":{
+                                        "type":"integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/book/update/{code}":{
+            "put":{
+                "tags":[
+                    "Books"
+                ],
+                "summary":"UPDATE BOOK DATA",
+                "description":"Update book data",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"code",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Book Code"
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{                                    
+                                    "title":{
+                                        "type":"string"
+                                    },
+                                    "author":{
+                                        "type":"string"
+                                    },
+                                    "stock":{
+                                        "type":"integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/book/delete":{
+            "delete":{
+                "tags":[
+                    "Books"
+                ],
+                "summary":"DELETE BOOK DATA",
+                "description":"Delete book data",                
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "code":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/borrow/create":{
+            "post":{
+                "tags":[
+                    "Borrow"
+                ],
+                "summary":"BORROWING BOOK",
+                "description":"Create borrow data",                
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "member_code":{
+                                        "type":"string"
+                                    },                                    
+                                    "books":{
+                                        "type":"object",
+                                        "example":[
+                                            {
+                                                "code":"book code 1"
+                                            },
+                                            {
+                                                "code":"book code 2"
+                                            }
+                                        ]                                                                  
+                                    }                                    
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/return/create":{
+            "post":{
+                "tags":[
+                    "Return"
+                ],
+                "summary":"RETURNING BOOK",
+                "description":"Create return data",                
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "borrow_code":{
+                                        "type":"string"
+                                    },                                    
+                                    "books":{
+                                        "type":"object",
+                                        "example":[
+                                            {
+                                                "code":"book code 1 being borrowed"
+                                            },
+                                            {
+                                                "code":"book code 2 being borrowed"
+                                            }
+                                        ]                                                                  
+                                    }                                    
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Success"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        }
+    }
+}
